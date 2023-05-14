@@ -159,13 +159,13 @@ const Hsection = () => {
     if (hasiljumlahI !== 0 || hasiljumlahJ !== 0 || hasiljumlahK !== 0) {
       let hasil = "";
       if (hasiljumlahI !== 0) {
-        hasil += hasiljumlahI + "I ";
+        hasil += hasiljumlahI + "i ";
       }
       if (hasiljumlahJ !== 0) {
-        hasil += hasiljumlahJ + "J ";
+        hasil += hasiljumlahJ + "j ";
       }
       if (hasiljumlahK !== 0) {
-        hasil += hasiljumlahK + "K";
+        hasil += hasiljumlahK + "k";
       }
       return hasil;
     }
@@ -175,7 +175,7 @@ const Hsection = () => {
     <>
       <section class="mb-44 bg-blue-900 dark:bg-gray-900">
         <div class="grid max-w-screen-xl h-4/6 px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-          <div class="mr-auto place-self-center lg:col-span-7">
+          <div class="mx-auto text-center lg:text-left place-self-center lg:col-span-7">
             <h1 class="max-w-2xl mb-8 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl text-white">
               Selamat Datang di Perhitungan Perkalian Silang(Cross Product) Dua
               Vektor
@@ -186,11 +186,11 @@ const Hsection = () => {
             </p>
           </div>
           <div onClick={scrollToBottom}>
-            <img class="max-w-md" src={Input} alt="Input" />
+            <img class="lg:max-w-md sm:max-w-md mx-auto" src={Input} alt="Input" />
           </div>
         </div>
       </section>
-      <div ref={bottomRef} class="relative mb-16 bg-blue-900 dark:bg-gray-900">
+      <div ref={bottomRef} class="relative mb-16 bg-blue-900 ">
         <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 m-auto w-10/12 relative overflow-x-auto">
           <button
             type="button"
@@ -225,7 +225,7 @@ const Hsection = () => {
         </div>
         <div class="flex justify-center static mx-auto m-auto max-w-screen-xl h-64">
           <div className="absolute flex flex-wrap top-40">
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <div class=" lg:mt-0 lg:col-span-5 lg:flex">
               <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-tl-lg rounded-bl-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div>
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -277,7 +277,7 @@ const Hsection = () => {
                     className="bg-gray-50 mr-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     onChange={(event) => handleMasukan(event, "i2")}
                   />
-                            
+
                   <input
                     type="number"
                     id="default-input"
@@ -334,37 +334,60 @@ const Hsection = () => {
                 </div>
               </div>
             </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-              <div class="max-w-lg p-6 bg-white border border-gray-200 rounded-tr-lg rounded-br-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="lg:mt-0 lg:col-span-5 lg:flex">
+              <div class="w-[390px] bg-white border border-gray-200 rounded-tr-lg rounded-br-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div>
-                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
-                    =~=~=~= Jawaban =~=~=~=
+                  <h5 class="mt-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
+                    Jawaban
                   </h5>
                 </div>
-                <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Penyelesaian
-                </p>
-                <div className="mb-6 flex">
-                  <p className="">
-                    Penyelesaian {hasiljumlahI}
-                    {hasiljumlahJ}
-                    {hasiljumlahK}
+                <div className="border m-4 relative rounded-lg shadow h-[257px]">
+                <p className=" text-[8px] absolute bg-blue-700 p-[2px] rounded left-[4px] top-[2px] mt-1 font-semibold text-white dark:text-white">
+                  Rumus
+                  </p> 
+                <div className="border shadow rounded mt-4 mx-2 h-[30px]">
+                  
+                  <p className=" text-xs text-center mt-1 font-medium text-gray-900 dark:text-white">
+                  (j1 x k2) + (k1 x i2) + (i1 x j2) - (i1 x k2) - (k1 x j2) - (j1 x i2)
                   </p>
-                  <p className="">
-                    {i1}
-                    {j1}
-                    {k1}
-                    {i2}
-                    {j2}
-                    {k2}
+
+                </div>
+                
+                <div className="mt-4">
+                {hasiljumlahI || hasiljumlahJ || hasiljumlahK !== null ? (
+                <div className="border shadow relative rounded mt-4 mx-2 h-[30px]">
+                <p className="text-[8px] absolute bg-blue-700 p-[2px] rounded left-[-4px] top-[-12px] mt-1 font-semibold text-white dark:text-white">
+                  Tahap 1
+                  </p> 
+                  <p className="text-xs text-center mt-1 font-medium text-gray-900 dark:text-white">
+                    ({j1} x {k2}) + ({k1} x {i2}) + ({i1} x {j2}) - ({i1} x {k2}) - ({k1} x {j2}) - ({j1} x {i2})
                   </p>
                 </div>
-                <div className="sm:gap-2 justify-between flex flex-wrap items-stretch mb-6 w-10/12 relative overflow-x-auto">
+                ) : null}
+
+                 {hasiljumlahI || hasiljumlahJ || hasiljumlahK !== null ? (
+                <div className="border mb-[40px] shadow relative rounded mt-4 mx-2 h-[30px]">
+                <p className="text-[8px] absolute bg-blue-700 p-[2px] rounded left-[-4px] top-[-12px] mt-1 font-semibold text-white dark:text-white">
+                  Tahap 2
+                  </p> 
+                   
+                   <div className="text-xs text-center mt-1 font-medium text-gray-900 dark:text-white">
+                  
+                  <p className="">
+                  {j1 * k2}i + {k1 * i2}j + {i1 * j2}k - {j1 * i2}k  - {k1 * j2}i - {i1 * k2}j
+                  </p>
+
+                </div>
+                </div>
+                ) : null}
+                      </div>
+                <div className="sm:gap-2 items-stretch mb-6 relative overflow-x-auto justify-center flex">
                   {hasiljumlahI || hasiljumlahJ || hasiljumlahK !== null ? (
-                    <div className="font-medium text-green-500 bg-white border border-blue-900 max-w-lg rounded-lg p-2 text-center">
+                    <div className="font-medium text-green-500 bg-white border-b-2 w-[120px] border-black max-w-lg p-2 text-center">
                       {handleHasil(hasiljumlahI, hasiljumlahJ, hasiljumlahK)}
                     </div>
                   ) : null}
+                  </div>
                 </div>
               </div>
             </div>
