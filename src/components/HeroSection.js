@@ -190,8 +190,8 @@ const Hsection = () => {
           </div>
         </div>
       </section>
-      <div ref={bottomRef} class="relative mb-16 bg-blue-900 ">
-        <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 m-auto w-10/12 relative overflow-x-auto">
+      <div ref={bottomRef} class="relative mb-16 bg-blue-900 md:h-[400px] h-[1000px]">
+        <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 m-auto bg-blue-900 relative overflow-x-auto">
           <button
             type="button"
             class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -223,10 +223,10 @@ const Hsection = () => {
             5
           </button>
         </div>
-        <div class="flex justify-center static mx-auto m-auto max-w-screen-xl h-64">
-          <div className="absolute flex flex-wrap top-40">
-            <div class=" lg:mt-0 lg:col-span-5 lg:flex">
-              <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-tl-lg rounded-bl-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex justify-center static mx-auto m-auto">
+          <div className="absolute flex flex-wrap top-40 ">
+            <div class="lg:mt-0 lg:col-span-5 lg:flex lg:max-w-md sm:max-w-sm mx-auto">
+              <div class="md:max-w-[384px] h-[350px] p-6 bg-white border border-gray-200 md:rounded-tl-lg md:rounded-bl-lg shadow">
                 <div>
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Masukan nilai Kedua Vektor dibawah ini!
@@ -334,8 +334,8 @@ const Hsection = () => {
                 </div>
               </div>
             </div>
-            <div class="lg:mt-0 lg:col-span-5 lg:flex">
-              <div class="w-[390px] bg-white border border-gray-200 rounded-tr-lg rounded-br-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="lg:mt-0 lg:col-span-5 lg:flex lg:max-w-md sm:max-w-md mx-auto">
+              <div class="md:max-w-[384px] h-[350px] bg-white border border-gray-200 md:rounded-tr-lg md:rounded-br-lg shadow">
                 <div>
                   <h5 class="mt-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
                     Jawaban

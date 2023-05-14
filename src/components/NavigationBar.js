@@ -31,10 +31,14 @@ const NavigationBar = () => {
     </div>
     <Navbar.Collapse>
       <Navbar.Link>
-        Home
+        <button>
+          Home
+        </button>
       </Navbar.Link>
       <Navbar.Link>
-        About
+        <button>
+          About
+        </button>
       </Navbar.Link>
     </Navbar.Collapse>
   </Navbar>
