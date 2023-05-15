@@ -31,9 +31,9 @@ const NavigationBar = () => {
     </div>
     <Navbar.Collapse>
       <Navbar.Link>
-        <button>
+        <Link to="/">
           Home
-        </button>
+        </Link>
       </Navbar.Link>
       <Navbar.Link>
         <button>

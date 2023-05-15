@@ -3,6 +3,7 @@ import Input from "../image/Input.png";
 import diskette from "../image/diskette.png";
 import reset from "../image/reset.png";
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Hsection = () => {
   const bottomRef = useRef(null);
@@ -186,18 +187,25 @@ const Hsection = () => {
             </p>
           </div>
           <div onClick={scrollToBottom}>
-            <img class="lg:max-w-md sm:max-w-md mx-auto" src={Input} alt="Input" />
+            <img
+              class="lg:max-w-md sm:max-w-md mx-auto"
+              src={Input}
+              alt="Input"
+            />
           </div>
         </div>
       </section>
-      <div ref={bottomRef} class="relative mb-16 bg-blue-900 md:h-[400px] h-[1000px]">
+      <div
+        ref={bottomRef}
+        class="relative mb-16 bg-blue-900 md:h-[400px] h-[1000px]"
+      >
         <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 m-auto bg-blue-900 relative overflow-x-auto">
-          <button
+          <Link to="/simpan1"
             type="button"
             class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             1
-          </button>
+          </Link>
           <button
             type="button"
             class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -223,7 +231,7 @@ const Hsection = () => {
             5
           </button>
         </div>
-        <div class="flex justify-center static mx-auto m-auto">
+        <div class="flex justify-center mx-auto m-auto">
           <div className="absolute flex flex-wrap top-40 ">
             <div class="lg:mt-0 lg:col-span-5 lg:flex lg:max-w-md sm:max-w-sm mx-auto">
               <div class="md:max-w-[384px] h-[350px] p-6 bg-white border border-gray-200 md:rounded-tl-lg md:rounded-bl-lg shadow">
@@ -342,51 +350,50 @@ const Hsection = () => {
                   </h5>
                 </div>
                 <div className="border m-4 relative rounded-lg shadow h-[257px]">
-                <p className=" text-[8px] absolute bg-blue-700 p-[2px] rounded left-[4px] top-[2px] mt-1 font-semibold text-white dark:text-white">
-                  Rumus
-                  </p> 
-                <div className="border shadow rounded mt-4 mx-2 h-[30px]">
-                  
-                  <p className=" text-xs text-center mt-1 font-medium text-gray-900 dark:text-white">
-                  (j1 x k2) + (k1 x i2) + (i1 x j2) - (i1 x k2) - (k1 x j2) - (j1 x i2)
+                  <p className=" text-[8px] absolute bg-blue-700 p-[2px] rounded left-[4px] top-[2px] mt-1 font-semibold text-white dark:text-white">
+                    Rumus
                   </p>
+                  <div className="border shadow rounded mt-4 mx-2 h-[30px]">
+                    <p className=" text-xs text-center mt-1 font-medium text-gray-900 dark:text-white">
+                      (j1 x k2) + (k1 x i2) + (i1 x j2) - (i1 x k2) - (k1 x j2)
+                      - (j1 x i2)
+                    </p>
+                  </div>
 
-                </div>
-                
-                <div className="mt-4">
-                {hasiljumlahI || hasiljumlahJ || hasiljumlahK !== null ? (
-                <div className="border shadow relative rounded mt-4 mx-2 h-[30px]">
-                <p className="text-[8px] absolute bg-blue-700 p-[2px] rounded left-[-4px] top-[-12px] mt-1 font-semibold text-white dark:text-white">
-                  Tahap 1
-                  </p> 
-                  <p className="text-xs text-center mt-1 font-medium text-gray-900 dark:text-white">
-                    ({j1} x {k2}) + ({k1} x {i2}) + ({i1} x {j2}) - ({i1} x {k2}) - ({k1} x {j2}) - ({j1} x {i2})
-                  </p>
-                </div>
-                ) : null}
-
-                 {hasiljumlahI || hasiljumlahJ || hasiljumlahK !== null ? (
-                <div className="border mb-[40px] shadow relative rounded mt-4 mx-2 h-[30px]">
-                <p className="text-[8px] absolute bg-blue-700 p-[2px] rounded left-[-4px] top-[-12px] mt-1 font-semibold text-white dark:text-white">
-                  Tahap 2
-                  </p> 
-                   
-                   <div className="text-xs text-center mt-1 font-medium text-gray-900 dark:text-white">
-                  
-                  <p className="">
-                  {j1 * k2}i + {k1 * i2}j + {i1 * j2}k - {j1 * i2}k  - {k1 * j2}i - {i1 * k2}j
-                  </p>
-
-                </div>
-                </div>
-                ) : null}
+                  <div className="mt-4">
+                    {hasiljumlahI || hasiljumlahJ || hasiljumlahK !== null ? (
+                      <div className="border shadow relative rounded mt-4 mx-2 h-[30px]">
+                        <p className="text-[8px] absolute bg-blue-700 p-[2px] rounded left-[-4px] top-[-12px] mt-1 font-semibold text-white dark:text-white">
+                          Tahap 1
+                        </p>
+                        <p className="text-xs text-center mt-1 font-medium text-gray-900 dark:text-white">
+                          ({j1} x {k2}) + ({k1} x {i2}) + ({i1} x {j2}) - ({i1}{" "}
+                          x {k2}) - ({k1} x {j2}) - ({j1} x {i2})
+                        </p>
                       </div>
-                <div className="sm:gap-2 items-stretch mb-6 relative overflow-x-auto justify-center flex">
-                  {hasiljumlahI || hasiljumlahJ || hasiljumlahK !== null ? (
-                    <div className="font-medium text-green-500 bg-white border-b-2 w-[120px] border-black max-w-lg p-2 text-center">
-                      {handleHasil(hasiljumlahI, hasiljumlahJ, hasiljumlahK)}
-                    </div>
-                  ) : null}
+                    ) : null}
+
+                    {hasiljumlahI || hasiljumlahJ || hasiljumlahK !== null ? (
+                      <div className="border mb-[40px] shadow relative rounded mt-4 mx-2 h-[30px]">
+                        <p className="text-[8px] absolute bg-blue-700 p-[2px] rounded left-[-4px] top-[-12px] mt-1 font-semibold text-white dark:text-white">
+                          Tahap 2
+                        </p>
+
+                        <div className="text-xs text-center mt-1 font-medium text-gray-900 dark:text-white">
+                          <p className="">
+                            {j1 * k2}i + {k1 * i2}j + {i1 * j2}k - {j1 * i2}k -{" "}
+                            {k1 * j2}i - {i1 * k2}j
+                          </p>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className="sm:gap-2 items-stretch mb-6 relative overflow-x-auto justify-center flex">
+                    {hasiljumlahI || hasiljumlahJ || hasiljumlahK !== null ? (
+                      <div className="font-medium text-green-500 bg-white border-b-2 w-[120px] border-black max-w-lg p-2 text-center">
+                        {handleHasil(hasiljumlahI, hasiljumlahJ, hasiljumlahK)}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </div>
