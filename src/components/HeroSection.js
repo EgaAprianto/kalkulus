@@ -40,17 +40,17 @@ const Hsection = () => {
   };
 
   const hapusData = () => {
-    localStorage.clear("hasiljumlahI");
-    localStorage.clear("hasiljumlahJ");
-    localStorage.clear("hasiljumlahK");
+    localStorage.removeItem("hasiljumlahI");
+    localStorage.removeItem("hasiljumlahJ");
+    localStorage.removeItem("hasiljumlahK");
 
-    localStorage.clear("i1");
-    localStorage.clear("j1");
-    localStorage.clear("k1");
+    localStorage.removeItem("i1");
+    localStorage.removeItem("j1");
+    localStorage.removeItem("k1");
 
-    localStorage.clear("i2");
-    localStorage.clear("j2");
-    localStorage.clear("k2");
+    localStorage.removeItem("i2");
+    localStorage.removeItem("j2");
+    localStorage.removeItem("k2");
 
     setI1("");
     setj1("");
@@ -199,37 +199,43 @@ const Hsection = () => {
         ref={bottomRef}
         class="relative mb-16 bg-blue-900 md:h-[400px] h-[1000px]"
       >
-        <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 m-auto bg-blue-900 relative overflow-x-auto">
-          <Link to="/simpan1"
-            type="button"
-            class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            1
-          </Link>
-          <button
-            type="button"
-            class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            2
-          </button>
-          <button
-            type="button"
-            class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            3
-          </button>
-          <button
-            type="button"
-            class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            4
-          </button>
-          <button
-            type="button"
-            class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            5
-          </button>
+        <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 py-2 m-auto bg-blue-900 relative overflow-x-auto">
+        <Link to="/"
+              type="button"
+              class="mt-14 text-blue-900 bg-blue-200 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              1
+            </Link>
+            <Link to="/simpan2"
+              type="button"
+              class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              2
+            </Link>
+            <Link to="/simpan3"
+              type="button"
+              class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              3
+            </Link>
+            <Link to="/simpan4"
+              type="button"
+              class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              4
+            </Link>
+            <Link to="/simpan5"
+              type="button"
+              class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              5
+            </Link>
+            <Link to="/simpan6"
+              type="button"
+              class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              6
+            </Link>
         </div>
         <div class="flex justify-center mx-auto m-auto">
           <div className="absolute flex flex-wrap top-40 ">

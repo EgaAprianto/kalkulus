@@ -25,24 +25,23 @@ const Simpan2 = () => {
   
     // simpan
     const [simpan2, setSimpan2] = useState(() => {
-      const storedData2 = localStorage.getItem('Simpan2');
-      return storedData2 ? JSON.parse(storedData2) : [];
+      const storedData = localStorage.getItem('Simpan2');
+      return storedData ? JSON.parse(storedData) : NaN;
     });
 
     //Nilai Hasil
-    const [hasiljumlahI, setHasilJumlahI] = useState(simpan2);
-    const [hasiljumlahJ, setHasilJumlahJ] = useState(simpan2);
-    const [hasiljumlahK, setHasilJumlahK] = useState(simpan2);
+    const [hasiljumlahI, setHasilJumlahI] = useState(isNaN(simpan2) ? 0 : simpan2);
+    const [hasiljumlahJ, setHasilJumlahJ] = useState(isNaN(simpan2) ? 0 : simpan2);
+    const [hasiljumlahK, setHasilJumlahK] = useState(isNaN(simpan2) ? 0 : simpan2);
 
     //SimpanData
-    let simpanData2 = (e) => {
+    let simpanData = (e) => {
       e.preventDefault();
 
       let dataSimpan2 = {
-        ID : 'Simpan 2',
+        ID : 'Simpan 1',
         Inputan : i1, i2, j1, j2, k1 , k2,
         Hasil : hasiljumlahI,hasiljumlahJ,hasiljumlahK
-
       }
       setSimpan2(dataSimpan2)
     };
@@ -73,18 +72,8 @@ const Simpan2 = () => {
     }, [simpan2]);
     
     //Hapus Data
-    const hapusData2 = () => {
-      localStorage.clear("hasiljumlahI");
-      localStorage.clear("hasiljumlahJ");
-      localStorage.clear("hasiljumlahK");
-  
-      localStorage.clear("i1");
-      localStorage.clear("j1");
-      localStorage.clear("k1");
-  
-      localStorage.clear("i2");
-      localStorage.clear("j2");
-      localStorage.clear("k2");
+    const hapusData = () => {
+      localStorage.removeItem("Simpan2");
   
       setI1(" ");
       setj1(" ");
@@ -127,7 +116,6 @@ const Simpan2 = () => {
       }
     }
     
-
     //Hasil Cross
     function hasilcross() {
       const a1 = i1;
@@ -193,8 +181,8 @@ const Simpan2 = () => {
           ref={bottomRef}
           class="relative mb-16 bg-blue-900 md:h-[400px] h-[1000px]"
         >
-          <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 m-auto bg-blue-900 relative overflow-x-auto">
-            <Link to="/simpan1"
+         <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 py-2 m-auto bg-blue-900 relative overflow-x-auto">
+          <Link to="/"
               type="button"
               class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
@@ -208,7 +196,7 @@ const Simpan2 = () => {
             </Link>
             <Link to="/simpan3"
               type="button"
-              class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="mt-14 text-blue-900 bg-blue-200 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               3
             </Link>
@@ -223,6 +211,12 @@ const Simpan2 = () => {
               class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               5
+            </Link>
+            <Link to="/simpan6"
+              type="button"
+              class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              6
             </Link>
           </div>
           <div class="flex justify-center mx-auto m-auto">
@@ -318,13 +312,13 @@ const Simpan2 = () => {
                       </svg>
                     </button>
                     <button
-                      onClick={hapusData2}
+                      onClick={hapusData}
                       class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
                     >
                       <img src={reset} className="h-[24px] w-[24px]" alt="save" />
                     </button>
                     <button
-                      onClick={simpanData2}
+                      onClick={simpanData}
                       class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-500 rounded-lg hover:bg-green -800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
                     >
                       <img

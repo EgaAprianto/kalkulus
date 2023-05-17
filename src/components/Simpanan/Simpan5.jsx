@@ -6,12 +6,14 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Simpan5 = () => {
+    /** Scroll Ke bawah */
     const bottomRef = useRef(null);
 
     const scrollToBottom = () => {
       bottomRef.current.scrollIntoView({ behavior: "smooth" });
     };
-  
+    
+    // Input
     const [i1, setI1] = useState("");
     const [i2, setI2] = useState("");
   
@@ -21,94 +23,73 @@ const Simpan5 = () => {
     const [k1, setK1] = useState("");
     const [k2, setk2] = useState("");
   
-    const [hasiljumlahI, setHasilJumlahI] = useState(null);
-    const [hasiljumlahJ, setHasilJumlahJ] = useState(null);
-    const [hasiljumlahK, setHasilJumlahK] = useState(null);
-  
-    let simpanData = () => {
-      localStorage.setItem("hasiljumlahI", JSON.stringify(hasiljumlahI));
-      localStorage.setItem("hasiljumlahJ", JSON.stringify(hasiljumlahJ));
-      localStorage.setItem("hasiljumlahK", JSON.stringify(hasiljumlahK));
-  
-      localStorage.setItem("i1", JSON.stringify(i1));
-      localStorage.setItem("j1", JSON.stringify(j1));
-      localStorage.setItem("k1", JSON.stringify(k1));
-  
-      localStorage.setItem("i2", JSON.stringify(i2));
-      localStorage.setItem("j2", JSON.stringify(j2));
-      localStorage.setItem("k2", JSON.stringify(k2));
+    // simpan
+    const [simpan5, setSimpan5] = useState(() => {
+      const storedData = localStorage.getItem('Simpan5');
+      return storedData ? JSON.parse(storedData) : NaN;
+    });
+
+    //Nilai Hasil
+    const [hasiljumlahI, setHasilJumlahI] = useState(isNaN(simpan5) ? 0 : simpan5);
+    const [hasiljumlahJ, setHasilJumlahJ] = useState(isNaN(simpan5) ? 0 : simpan5);
+    const [hasiljumlahK, setHasilJumlahK] = useState(isNaN(simpan5) ? 0 : simpan5);
+
+    //SimpanData
+    let simpanData = (e) => {
+      e.preventDefault();
+
+      let dataSimpan5 = {
+        ID : 'Simpan 1',
+        Inputan : i1, i2, j1, j2, k1 , k2,
+        Hasil : hasiljumlahI,hasiljumlahJ,hasiljumlahK
+      }
+      setSimpan5(dataSimpan5)
     };
-  
+
+    useEffect(() => {
+      localStorage.setItem('Simpan5', JSON.stringify(simpan5));
+    }, [simpan5]);
+
+    useEffect(() => {
+      const storedData = localStorage.getItem('Simpan5');
+      if (storedData) {
+        setSimpan5(JSON.parse(storedData));
+      }
+    }, []);
+
+    useEffect(() => {
+      if (simpan5) {
+        setHasilJumlahI(simpan5.Hasil);
+        setHasilJumlahJ(simpan5.hasiljumlahJ);
+        setHasilJumlahK(simpan5.hasiljumlahK);
+        setI1(simpan5.Inputan);
+        setI2(simpan5.i2);
+        setj1(simpan5.j1);
+        setj2(simpan5.j2);
+        setK1(simpan5.k1);
+        setk2(simpan5.k2);
+      }
+    }, [simpan5]);
+    
+    //Hapus Data
     const hapusData = () => {
-      localStorage.clear("hasiljumlahI");
-      localStorage.clear("hasiljumlahJ");
-      localStorage.clear("hasiljumlahK");
+      localStorage.removeItem("Simpan5");
+
   
-      localStorage.clear("i1");
-      localStorage.clear("j1");
-      localStorage.clear("k1");
+      setI1(" ");
+      setj1(" ");
+      setK1(" ");
   
-      localStorage.clear("i2");
-      localStorage.clear("j2");
-      localStorage.clear("k2");
-  
-      setI1("");
-      setj1("");
-      setK1("");
-  
-      setI2("");
-      setj2("");
-      setk2("");
+      setI2(" ");
+      setj2(" ");
+      setk2(" ");
   
       setHasilJumlahI(null);
       setHasilJumlahJ(null);
       setHasilJumlahK(null);
     };
-  
-    useEffect(() => {
-      const hasiljumlahI = JSON.parse(localStorage.getItem("hasiljumlahI"));
-      const hasiljumlahJ = JSON.parse(localStorage.getItem("hasiljumlahJ"));
-      const hasiljumlahK = JSON.parse(localStorage.getItem("hasiljumlahK"));
-  
-      const i1 = JSON.parse(localStorage.getItem("i1"));
-      const j1 = JSON.parse(localStorage.getItem("j1"));
-      const k1 = JSON.parse(localStorage.getItem("k1"));
-  
-      const i2 = JSON.parse(localStorage.getItem("i2"));
-      const j2 = JSON.parse(localStorage.getItem("j2"));
-      const k2 = JSON.parse(localStorage.getItem("k2"));
-  
-      if (hasiljumlahI) {
-        setHasilJumlahI(hasiljumlahI);
-      }
-      if (hasiljumlahJ) {
-        setHasilJumlahJ(hasiljumlahJ);
-      }
-      if (hasiljumlahK) {
-        setHasilJumlahK(hasiljumlahK);
-      }
-  
-      if (i1) {
-        setI1(i1);
-      }
-      if (j1) {
-        setj1(j1);
-      }
-      if (k1) {
-        setK1(k1);
-      }
-  
-      if (i2) {
-        setI2(i2);
-      }
-      if (j2) {
-        setj2(j2);
-      }
-      if (k2) {
-        setk2(k2);
-      }
-    }, []);
-  
+    
+    //Handle Input
     function handleMasukan(event, input) {
       const masukan = parseFloat(event.target.value);
   
@@ -135,7 +116,8 @@ const Simpan5 = () => {
           break;
       }
     }
-  
+    
+    //Hasil Cross
     function hasilcross() {
       const a1 = i1;
       const a2 = i2;
@@ -155,7 +137,8 @@ const Simpan5 = () => {
       const hasilK = a1 * b2 - b1 * a2;
       setHasilJumlahK(hasilK);
     }
-  
+
+    //Handle Hasil
     function handleHasil(hasiljumlahI, hasiljumlahJ, hasiljumlahK) {
       if (hasiljumlahI !== 0 || hasiljumlahJ !== 0 || hasiljumlahK !== 0) {
         let hasil = "";
@@ -199,8 +182,8 @@ const Simpan5 = () => {
           ref={bottomRef}
           class="relative mb-16 bg-blue-900 md:h-[400px] h-[1000px]"
         >
-          <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 m-auto bg-blue-900 relative overflow-x-auto">
-          <Link to="/simpan1"
+         <div className="sm:gap-10 flex flex-wrap items-stretch text-center mt-10 justify-center mb-6 py-2 m-auto bg-blue-900 relative overflow-x-auto">
+                     <Link to="/"
               type="button"
               class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
@@ -229,6 +212,12 @@ const Simpan5 = () => {
               class="mt-14 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               5
+            </Link>
+            <Link to="/simpan6"
+              type="button"
+              class="mt-14 text-blue-900 bg-blue-200 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              6
             </Link>
           </div>
           <div class="flex justify-center mx-auto m-auto">

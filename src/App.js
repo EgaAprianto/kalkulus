@@ -30,7 +30,7 @@ function App() {
         </Routes>
         <Routes>
           <Route
-            path="/simpan1"
+            path="/simpan2"
             element={
               <>
                 <NavigationBar />
@@ -43,7 +43,7 @@ function App() {
         </Routes>
         <Routes>
           <Route
-            path="/simpan2"
+            path="/simpan3"
             element={
               <>
                 <NavigationBar />
@@ -56,7 +56,7 @@ function App() {
         </Routes>
         <Routes>
           <Route
-            path="/simpan3"
+            path="/simpan4"
             element={
               <>
                 <NavigationBar />
@@ -69,7 +69,7 @@ function App() {
         </Routes>
         <Routes>
           <Route
-            path="/simpan4"
+            path="/simpan5"
             element={
               <>
                 <NavigationBar />
@@ -82,7 +82,7 @@ function App() {
         </Routes>
         <Routes>
           <Route
-            path="/simpan5"
+            path="/simpan6"
             element={
               <>
                 <NavigationBar />
